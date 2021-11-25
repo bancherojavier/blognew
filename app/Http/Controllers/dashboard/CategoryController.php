@@ -87,6 +87,12 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware(['auth', 'rol.admin']);
+    }
+
     public function destroy(Category $category)
     {
         $category->delete();

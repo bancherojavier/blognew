@@ -77,6 +77,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware(['auth', 'rol.admin']);
+    }
+
     public function edit(Post $post)
     {
         dd($post->image->image);
